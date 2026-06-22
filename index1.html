@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uchaguzi Mkuu Tanzania</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f1f5f9; color: #1e293b; padding: 20px; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        /* Ukurasa wa Kufungwa */
+        .lock-screen {
+            height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+        }
+        .lock-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 450px; }
+        .lock-icon { font-size: 50px; margin-bottom: 15px; }
+        .btn-link { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #008751; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; word-break: break-all; cursor: pointer; border: none; font-size: 16px; }
+
+        /* Ukurasa wa Uchaguzi (Dashboard) */
+        .dashboard { display: none; max-width: 1000px; margin: 0 auto; width: 100%; flex: 1; }
+        .header { background: linear-gradient(135deg, #1e3a8a, #008751); color: white; padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 30px; position: relative; overflow: hidden; }
+        .header::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 8px; background: #fcd34d; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border-left: 5px solid #008751; }
+        .card.yellow { border-left-color: #fcd34d; }
+        .card.blue { border-left-color: #1e3a8a; }
+        
+        .number { font-size: 32px; font-weight: bold; margin-top: 10px; color: #0f172a; }
+        
+        .table-section { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-bottom: 40px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #e2e8f0; }
+        th { background-color: #f8fafc; color: #64748b; }
+        .status { padding: 4px 8px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .status.active { background: #dcfce7; color: #15803d; }
+
+        /* Sehemu ya usajili mwishoni kabisa */
+        .footer-registration {
+            margin-top: auto;
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+            font-size: 14px;
+            border-top: 1px solid #e2e8f0;
+            width: 100%;
+        }
+        .footer-registration strong { color: #0f172a; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. UKURASA UKIFUNGWA -->
+    <div class="lock-screen" id="lockScreen">
+        <div class="lock-card">
+            <div class="lock-icon">🔒</div>
+            <button id="kiunganishiMkuu" class="btn-link">Pakia Link...</button>
+        </div>
+    </div>
+
+    <!-- 2. DASHBOARD YA UCHAGUZI -->
+    <div class="dashboard" id="electionDashboard">
+        <div class="header">
+            <h1>TANZANIA ELECTION DASHBOARD</h1>
+            <p>Mfumo wa Kidijitali wa Kufuatilia Uchaguzi Mkuu</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Wapiga Kura Waliojiandikisha</h3>
+                <div class="number">29,845,210</div>
+            </div>
+            <div class="card yellow">
+                <h3>Vituo vya Kupigia Kura</h3>
+                <div class="number">80,154</div>
+            </div>
+            <div class="card blue">
+                <h3>Nafasi zinazogombewa</h3>
+                <div class="number">Rais, Wabunge, Madiwani</div>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <h2>Hali ya Vyama Vikuu vya Siasa</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jina la Chama</th>
+                        <th>Kifupi</th>
+                        <th>Rangi Imara</th>
+                        <th>Hali ya Usajili</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Chama Cha Mapinduzi</strong></td>
+                        <td>CCM</td>
+                        <td style="color: #008751; font-weight: bold;">Kijani & Njano</td>
+                        <td><span class="status active">Hai</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chama cha Demokrasia na Maendeleo</strong></td>
+                        <td>CHADEMA</td>
+                        <td style="color: #1e3a8a; font-weight: bold;">Bluu, Nyeupe & Nyekundu</td>
+                        <td><span class="status active">Hai</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>The Civic United Front</strong></td>
+                        <td>CUF</td>
+                        <td style="color: #fcd34d; font-weight: bold;">Nyeupe & Njano</td>
+                        <td><span class="status active">Hai</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Alliance for Change and Transparency</strong></td>
+                        <td>ACT-Wazalendo</td>
+                        <td style="color: purple; font-weight: bold;">Zambarau</td>
+                        <td><span class="status active">Hai</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- MWISHONI KABISA MWA KAZI -->
+    <footer class="footer-registration">
+        Reg No: <strong>02.5232.21.03.2025</strong> | Name: <strong>MGETA ENG'ALILA KANEJA</strong>
+    </footer>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const upandeWaMwisho = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            const linkKamili = upandeWaMwisho + "?uchaguzi=2025";
+            
+            const batani = document.getElementById('kiunganishiMkuu');
+            if(batani) {
+                batani.innerText = linkKamili;
+                
+                batani.addEventListener('click', () => {
+                    document.getElementById('lockScreen').style.display = 'none';
+                    document.getElementById('electionDashboard').style.display = 'block';
+                });
+            }
+        });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const siri = urlParams.get('uchaguzi');
+        if (siri === '2025') {
+            document.getElementById('lockScreen').style.display = 'none';
+            document.getElementById('electionDashboard').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
